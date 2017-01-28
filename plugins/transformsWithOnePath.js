@@ -41,7 +41,7 @@ var _path = require('./_path.js'),
     applyTransforms = _path.applyTransforms,
     js2path = _path.js2path,
     path2js = _path.path2js,
-    EXTEND = require('whet.extend');
+    EXTEND = require('assign-deeply');
 
 exports.fn = function(data, params) {
 
