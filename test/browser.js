@@ -8,6 +8,10 @@ var svgStr = `<?xml version="1.0" encoding="utf-8"?>
 >
 
 	<circle fill="none" cx="10" cy="20" r="52" />
+	<style type="text/css"><![CDATA[
+		svg { fill: red; }
+	]]></style>
+
 	<g>
 		<g  style="font-family:sans-serif;font-weight:800;font-size:32px;fill:white;">
 			<text x="299.79" y="207.94" transform="translate(-213.78 102.9) scale(.99587)">hello</text>
