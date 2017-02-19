@@ -22,7 +22,7 @@ exports.params = {
 };
 
 var cleanupOutData = require('../lib/svgo/tools').cleanupOutData,
-    EXTEND = require('whet.extend'),
+    EXTEND = require('assign-deeply'),
     transform2js = require('./_transforms.js').transform2js,
     transformsMultiply = require('./_transforms.js').transformsMultiply,
     matrixToTransform = require('./_transforms.js').matrixToTransform,
