@@ -23,43 +23,28 @@ var SVGO = require('../lib/svgo');
 var assert = require('assert');
 
 var svgoConfig = {multipass:true, floatPrecision:2, /*js2svg:{pretty:true},*/ plugins: [
-	{removeUselessStrokeAndFill: {removeNone: true}}, 
-	{convertShapeToPath: false}
+	{removeUselessStrokeAndFill: {removeNone: true}}
 ]};
-var svgo = new SVGO(svgoConfig);
 
 
-svgo.optim(svgStr, 1)
-.then(svgjs => {
-	assert(svgjs.data.length < svgStr.length);
-	console.log('result:', svgjs.data)
-	console.log('with node:', svgjs.data.length, svgStr.length)
-})
-.catch(console.error);
+(async() => {
 
-// var svgoConfig1 = {multipass:true, floatPrecision:2, plugins: [
-// 	{mergePaths: false}, 
-// 	{convertShapeToPath: false}
-// ]};
-// var svgo1 = new SVGO(svgoConfig1); // svgo bugs when creating a new instance with another config..
+	var {data} = await new SVGO(svgoConfig).optim(svgStr);
 
-svgo.optim(svgStr, 1)
-.then(svgjs => {
-	assert(svgjs.data.length < svgStr.length);
-	// console.log('result:', svgjs.data)
-	console.log('with node:', svgjs.data.length, svgStr.length)
-})
-.catch(console.error);
+	console.log(data.length);
+
+	var {data} = await new SVGO(svgoConfig).optim(svgStr);
+
+	console.log(data.length);
 
 
-var SVGO2 = Function(require('fs').readFileSync('../dist/svgo.js').toString()+'\nreturn SVGO;')();
+})();
 
-var svgo2 = new SVGO2(svgoConfig);
 
-svgo2.optim(svgStr)
-.then(svgjs => {
-	assert(svgjs.data.length < svgStr.length);
-	console.log('with bundle:', svgjs.data.length, svgStr.length)
-})
-.catch(console.error);
+
+// var SVGO2 = Function(require('fs').readFileSync('../dist/svgo.js').toString()+'\nreturn SVGO;')();
+
+
+
+
 
