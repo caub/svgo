@@ -33,15 +33,13 @@ exports.fn = function(item) {
         item.hasAttr('height')
     ) {
 
-        var match = item.attr('viewBox').value.match(regViewBox);
+        var nums = item.attr('viewBox').value.split(/[ ,]/g);
 
-        if (match) {
-            if (
-                item.attr('width').value === match[1] &&
-                item.attr('height').value === match[3]
-            ) {
-                item.removeAttr('viewBox');
-            }
+        if (
+            item.attr('width').value === nums[2] &&
+            item.attr('height').value === nums[3]
+        ) {
+            item.removeAttr('viewBox');
         }
 
     }
