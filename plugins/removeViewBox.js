@@ -33,7 +33,7 @@ exports.fn = function(item) {
         item.hasAttr('height')
     ) {
 
-        var nums = item.attr('viewBox').value.split(/[ ,]/g);
+        var nums = item.attr('viewBox').value.split(/[ ,]+/g);
 
         if (
             item.attr('width').value === nums[2] &&

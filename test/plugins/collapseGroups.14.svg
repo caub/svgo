@@ -10,7 +10,14 @@
             <g/>
         </g>
     </switch>
-    
+    <switch>
+        <text systemLanguage="en">
+            Hello
+        </text>
+        <text systemLanguage="de,nl">
+            Hallo!
+        </text>
+    </switch>
 </svg>
 
 @@@
@@ -22,4 +29,12 @@
         <g class="i"/>
     </g>
     <g/>
+    <switch>
+        <text systemLanguage="en">
+            Hello
+        </text>
+        <text systemLanguage="de,nl">
+            Hallo!
+        </text>
+    </switch>
 </svg>
